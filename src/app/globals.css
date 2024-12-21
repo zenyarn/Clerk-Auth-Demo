@@ -3,19 +3,37 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(var(--background-end-rgb))
+  )
+  rgb(var(--background-start-rgb));
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 导航栏动画效果 */
+nav {
+  transition: all 0.3s ease-in-out;
+}
+
+nav:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* 卡片效果 */
+.backdrop-blur-lg {
+  transition: all 0.3s ease-in-out;
+}
+
+.backdrop-blur-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
